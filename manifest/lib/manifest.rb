@@ -20,12 +20,20 @@ module ManifestReader
         merged
         }.map { |line| line.split(/: /) }.inject({}) { |map, (name, values)|
                                                                          valuesAsHash = {}
-                                                                         values.split(/,/).each { |attribute| 
+                                                                         values.split(/,/).inject([]) { |array, att1| 
+ 
+                                                                                                              if (/[\]|\[|\)|\(]"$/.match(att1))
+                                                                                                                 last = array.pop
+                                                                                                                 array << "#{last},#{att1}" 
+                                                                                                              else
+                                                                                                                 array << att1
+                                                                                                              end
+                                                                                                          }.each { |attribute|
                                                                                                             optionalAttributes = {}
                                                                                                             values = attribute.split(/;/)
                                                                                                             value = values.shift
                                                                                                             values.each {|attribute| 
-                                                                                                                                 array = attribute.split(/:=/) 
+                                                                                                                                 array = attribute.split(/:?=/) 
                                                                                                                                  array[0] = /\b(.*)/.match(array.first)[0]
                                                                                                                                  optionalAttributes[array.first.chomp] = array.last.chomp
                                                                                                                                 }
