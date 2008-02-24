@@ -1,8 +1,8 @@
 require 'manifest/version'
 
-AUTHOR = 'FIXME full name'  # can also be an array of Authors
-EMAIL = "FIXME email"
-DESCRIPTION = "description of gem"
+AUTHOR = 'Antoine Toulme'  # can also be an array of Authors
+EMAIL = "antoine@lunar-ocean.com"
+DESCRIPTION = "The Jar Manifest files are a nightmare to parse. They have a special encoding that is neither XML, JSON, or properties. This library intends to produce a parser that will read such files."
 GEM_NAME = 'manifest' # what ppl will type to install your gem
 RUBYFORGE_PROJECT = 'manifest' # The unix name for your project
 HOMEPATH = "http://#{RUBYFORGE_PROJECT}.rubyforge.org"

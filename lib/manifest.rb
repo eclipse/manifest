@@ -2,12 +2,11 @@
 
 $:.unshift File.dirname(__FILE__)
 
-MANIFEST_LINE_SEP = /\r\n|\n|\r[^\n]/
-MANIFEST_SECTION_SEP = /(#{MANIFEST_LINE_SEP}){2}/
-
-
-module ManifestReader
-
+module Manifest
+  
+  MANIFEST_LINE_SEP = /\r\n|\n|\r[^\n]/
+  MANIFEST_SECTION_SEP = /(#{MANIFEST_LINE_SEP}){2}/
+  
   def read(text)
     
     text.split(MANIFEST_SECTION_SEP).reject { |s| s.chomp == "" }.map do |section|
@@ -43,14 +42,4 @@ module ManifestReader
                                                                      }
       end
    end
-end
-
-class Manifest
-  include ManifestReader
-  
-  attr_accessor  :sections
-
-  def initialize(text)
-    @sections = read(text)
-  end
 end

@@ -1,4 +1,5 @@
-== 0.0.1 2007-12-08
+== 0.0.1 2008-24-02
 
-* 1 major enhancement:
-  * Initial release
+* Initial release
+  * Ability to parse MANIFEST.MF files
+  * Presents parsing result as a hierarchy of hashes
