@@ -1,3 +1,5 @@
+# Copyright 2008 Antoine Toulme
+
 module Manifest #:nodoc:
   module VERSION #:nodoc:
     MAJOR = 0
