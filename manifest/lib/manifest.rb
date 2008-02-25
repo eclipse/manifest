@@ -10,7 +10,7 @@ module Manifest
   def read(text)
     
     text.split(MANIFEST_SECTION_SEP).reject { |s| s.chomp == "" }.map do |section|
-      section.split(MANIFEST_LINE_SEP).each { |line| line.length.should < 72 }.inject([]) { |merged, line|
+      section.split(MANIFEST_LINE_SEP).each { |line| line.length < 72 }.inject([]) { |merged, line|
         if line[0] == 32
           merged.last << line[1..-1]
         else
@@ -21,7 +21,7 @@ module Manifest
                                                                          valuesAsHash = {}
                                                                          values.split(/,/).inject([]) { |array, att1| 
  
-                                                                                                              if (/[\]|\[|\)|\(]"$/.match(att1))
+                                                                                                              if (/[\]|\[|\)|\(]"/.match(att1))
                                                                                                                  last = array.pop
                                                                                                                  array << "#{last},#{att1}" 
                                                                                                               else
@@ -33,12 +33,11 @@ module Manifest
                                                                                                             value = values.shift
                                                                                                             values.each {|attribute| 
                                                                                                                                  array = attribute.split(/:?=/) 
-                                                                                                                                 array[0] = /\b(.*)/.match(array.first)[0]
-                                                                                                                                 optionalAttributes[array.first.chomp] = array.last.chomp
+                                                                                                                                 optionalAttributes.merge!(array.first.strip=>array.last.strip)
                                                                                                                                 }
-                                                                                                            valuesAsHash[value] = optionalAttributes
+                                                                                                            valuesAsHash.merge!(value=>optionalAttributes)
                                                                                                           }
-                                                                         map.merge(name=>valuesAsHash) 
+                                                                         map.merge!(name=>valuesAsHash) 
                                                                      }
       end
    end
