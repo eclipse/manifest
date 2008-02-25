@@ -1,13 +1,13 @@
 body {
-  background-color: #E1D1F1;
+/*  background-color: #E1D1F1;*/
   font-family: "Georgia", sans-serif;
   font-size: 16px;
   line-height: 1.6em;
   padding: 1.6em 0 0 0;
-  color: #333;
+  color: #000;
 }
 h1, h2, h3, h4, h5, h6 {
-  color: #444;
+  color: #666;
 }
 h1 { 
   font-family: sans-serif;
@@ -23,8 +23,6 @@ li {
   list-style-type: square;
 }
 a {
-  color: #5E5AFF;
-	background-color: #DAC;
   font-weight: normal;
   text-decoration: underline;
 }
