@@ -1,10 +1,8 @@
 h1. manifest
 
-h1. &#x2192; 'manifest'
 
 
-h2. What
-Manifest is a simple Manifest jar reader.
+Manifest is a library to read Manifest files located in jars and OSGi bundles.
 
 h2. Installing
 
