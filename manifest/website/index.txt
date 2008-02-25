@@ -1,5 +1,6 @@
 h1. manifest
 
+
 Manifest is a library to read Manifest files located in jars and OSGi bundles.
 
 h2. Installing
