@@ -1,10 +1,21 @@
+###############################################################################
+# Copyright (c) 2008-2009 Manifest and others.
+# All rights reserved. This program and the accompanying materials
+# are made available under the terms of the Eclipse Public License v1.0
+# which accompanies this distribution, and is available at
+# http://www.eclipse.org/legal/epl-v10.html
+#
+# Contributors:
+#     Antoine Toulme - initial API and implementation
+###############################################################################
+
 require 'config/requirements'
 require 'config/hoe' # setup Hoe + all gem configuration
 
 desc 'Generate website files'
-task :website_generate => :ruby_env do
+task :website_generate do
   (Dir['website/**/*.txt'] - Dir['website/version*.txt']).each do |txt|
-    sh %{ #{RUBY_APP} script/txt2html #{txt} > #{txt.gsub(/txt$/,'html')} }
+    sh %{ruby script/txt2html #{txt} > #{txt.gsub(/txt$/,'html')} }
   end
 end
 
