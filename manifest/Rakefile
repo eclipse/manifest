@@ -47,6 +47,30 @@ task :install_gem_no_doc => [:clean, :package] do
   sh "#{'sudo ' unless Hoe::WINDOZE }gem install pkg/*.gem --no-rdoc --no-ri"
 end
 
+begin
+  require 'spec'
+rescue LoadError
+  require 'rubygems'
+  require 'spec'
+end
+begin
+  require 'spec/rake/spectask'
+rescue LoadError
+  puts <<-EOS
+To use rspec for testing you must install rspec gem:
+    gem install rspec
+EOS
+  exit(0)
+end
+
+desc "Run the specs under spec"
+Spec::Rake::SpecTask.new do |t|
+  t.spec_opts = ['--options', "spec/spec.opts"]
+  t.spec_files = FileList['spec/**/*_spec.rb']
+  t.spec_opts = %w{--format specdoc --loadby mtime --backtrace}    
+  t.spec_opts << '--colour' if $stdout.isatty
+end
+
 namespace :manifest do
   desc 'Recreate Manifest.txt to include ALL files'
   task :refresh do
