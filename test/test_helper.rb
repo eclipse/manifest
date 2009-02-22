@@ -1,4 +1,5 @@
 # Copyright Antoine Toulme 2008
 
-require 'test/unit'
+require 'rubygems'
+require 'spec'
 require File.dirname(__FILE__) + '/../lib/manifest'
