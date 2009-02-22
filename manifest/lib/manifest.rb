@@ -41,4 +41,6 @@ module Manifest
                                                                      }
       end
    end
+   
+   module_function :read
 end
