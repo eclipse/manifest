@@ -31,6 +31,17 @@ end
 REV = nil 
 # UNCOMMENT IF REQUIRED: 
 # REV = `svn info`.each {|line| if line =~ /^Revision:/ then k,v = line.split(': '); break v.chomp; else next; end} rescue nil
+###############################################################################
+# Copyright (c) 2008-2009 Manifest and others.
+# All rights reserved. This program and the accompanying materials
+# are made available under the terms of the Eclipse Public License v1.0
+# which accompanies this distribution, and is available at
+# http://www.eclipse.org/legal/epl-v10.html
+#
+# Contributors:
+#     Antoine Toulme - initial API and implementation
+###############################################################################
+
 VERS = Manifest::VERSION::STRING + (REV ? ".#{REV}" : "")
 RDOC_OPTS = ['--quiet', '--title', 'manifest documentation',
     "--opname", "index.html",

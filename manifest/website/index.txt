@@ -1,6 +1,5 @@
 h1. manifest
 
-
 Manifest is a library to read Manifest files located in jars and OSGi bundles.
 
 h2. Installing
@@ -19,7 +18,7 @@ The trunk repository is <code>svn://rubyforge.org/var/svn/manifest/trunk</code> 
 
 h2. License
 
-This code is free to use under the terms of the Apache 2 license. 
+The code is licensed under the "Eclipse Public License v 1.0":http://www.eclipse.org/legal/epl-v10.html. 
 
 h2. Contact
 
