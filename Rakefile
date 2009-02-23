@@ -82,6 +82,9 @@ Spec::Rake::SpecTask.new do |t|
   t.spec_opts << '--colour' if $stdout.isatty
 end
 
+# Alias test with spec
+task :test => [:spec]
+
 namespace :manifest do
   desc 'Recreate Manifest.txt to include ALL files'
   task :refresh do
