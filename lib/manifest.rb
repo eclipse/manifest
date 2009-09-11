@@ -31,15 +31,26 @@ module Manifest
             map.merge!(name=>nil)
           else
             valuesAsHash = {}
+            
+            nestedList = false
             values.split(/,/).inject([]) { |array, att1| 
-
-              if (/[\]|\[|\)|\(]"/.match(att1))
+              # split and then recompose. Not optimal at all but the manifest format is such a pain...
+              if nestedList
                 last = array.pop
-                array << "#{last},#{att1}" 
+                array << "#{last},#{att1}"
               else
                 array << att1
               end
+
+              if (/.*"$/.match(att1))
+                 nestedList = false
+              elsif /"/.match(att1) # if a " is in the value, it means we entered a subentry. And since it is not at the
+                                    # end of the line, we can conclude we are in a nested list.
+                 nestedList = true
+              end
+              array
               }.each { |attribute|
+                p attribute
                 optionalAttributes = {}
                 values = attribute.split(/;/)
                 value = values.shift
