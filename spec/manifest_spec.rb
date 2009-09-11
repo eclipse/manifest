@@ -32,3 +32,11 @@ describe "Able to parse a manifest" do
     @sections.first["Require-Bundle"]["org.eclipse.core.expressions"]["bundle-version"].should eql("\"[3.2.0,4.0.0)\"")
   end
 end
+
+describe 'able to parse an invalid manifest' do
+  
+  it 'should read a manifest with no value for an entry' do
+    lambda {Manifest.read(File.open("#{File.dirname(__FILE__)}/invalid_manifest.MF").read)}.should_not raise_error
+  end
+  
+end
