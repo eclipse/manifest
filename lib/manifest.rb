@@ -50,7 +50,6 @@ module Manifest
               end
               array
               }.each { |attribute|
-                p attribute
                 optionalAttributes = {}
                 values = attribute.split(/;/)
                 value = values.shift
