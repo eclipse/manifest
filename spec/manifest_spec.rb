@@ -50,6 +50,12 @@ MANIFEST
     sections = Manifest.read(manifest)
     sections.first["Export-Package"].size.should == 1
   end
+  
+  it "should not merge when several options are used" do
+    manifest = File.read(File.join(File.dirname(__FILE__), 'gmf_manifest.MF'))
+    sections = Manifest.read(manifest)
+    sections.first["Require-Bundle"].size.should == 4
+  end
 end
 
 describe 'able to parse an invalid manifest' do

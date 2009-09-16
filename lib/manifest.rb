@@ -42,7 +42,7 @@ module Manifest
                 array << att1
               end
 
-              if (/.*"$/.match(att1))
+              if (/.*"$/.match(att1) || /.*";/.match(att1))
                  nestedList = false
               elsif /"/.match(att1) # if a " is in the value, it means we entered a subentry. And since it is not at the
                                     # end of the line, we can conclude we are in a nested list.
