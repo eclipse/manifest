@@ -1,5 +1,5 @@
 ###############################################################################
-# Copyright (c) 2008-2009 Manifest and others.
+# Copyright (c) 2008-2010 Manifest and others.
 # All rights reserved. This program and the accompanying materials
 # are made available under the terms of the Eclipse Public License v1.0
 # which accompanies this distribution, and is available at
@@ -42,12 +42,17 @@ module Manifest
                 array << att1
               end
 
+              index = 0
               if (/.*"$/.match(att1) || /.*";/.match(att1))
                  nestedList = false
-              elsif /"/.match(att1) # if a " is in the value, it means we entered a subentry. And since it is not at the
-                                    # end of the line, we can conclude we are in a nested list.
+                 index =  $~[0].size
+              end
+              if att1[index, att1.size].match(/"/)
+                 # if a " is in the value, it means we entered a subentry. And since it is not at the
+                 # end of the line, we can conclude we are in a nested list.
                  nestedList = true
               end
+              
               array
               }.each { |attribute|
                 optionalAttributes = {}

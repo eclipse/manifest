@@ -1,0 +1,35 @@
+Manifest-Version: 1.0
+Export-Package: holdmarker.cache;version="2.3.15";uses:="holdmarker.co
+ re,holdmarker.template,javax.servlet",holdmarker.core;version="2.3.15
+ ";uses:="holdmarker.template,javax.swing.tree",holdmarker.debug;versi
+ on="2.3.15";uses:="holdmarker.template",holdmarker.debug.impl;version
+ ="2.3.15";uses:="holdmarker.core,holdmarker.debug,holdmarker.log,hold
+ marker.template",holdmarker.ext.ant;version="2.3.15";uses:="holdmarke
+ r.template,org.apache.tools.ant",holdmarker.ext.beans;version="2.3.15
+ ";uses:="holdmarker.ext.util,holdmarker.template",holdmarker.ext.dom;
+ version="2.3.15";uses:="holdmarker.core,holdmarker.template,javax.xml
+ .parsers,org.jaxen,org.w3c.dom,org.xml.sax",holdmarker.ext.jdom;versi
+ on="2.3.15";uses:="holdmarker.template,org.jaxen,org.jdom",holdmarker
+ .ext.jsp;version="2.3.15";uses:="holdmarker.core,holdmarker.log,holdm
+ arker.template,javax.el,javax.servlet,javax.servlet.http,javax.servle
+ t.jsp,javax.servlet.jsp.el,javax.servlet.jsp.tagext,javax.xml.parsers
+ ,org.xml.sax,org.xml.sax.helpers",holdmarker.ext.jython;version="2.3.
+ 15";uses:="holdmarker.template,org.python.core",holdmarker.ext.rhino;
+ version="2.3.15";uses:="holdmarker.ext.beans,holdmarker.ext.util,hold
+ marker.template,org.mozilla.javascript",holdmarker.ext.servlet;versio
+ n="2.3.15";uses:="holdmarker.cache,holdmarker.core,holdmarker.templat
+ e,javax.servlet,javax.servlet.http",holdmarker.ext.util;version="2.3.
+ 15";uses:="holdmarker.template",holdmarker.ext.xml;version="2.3.15";u
+ ses:="holdmarker.template,org.jaxen",holdmarker.log;version="2.3.15";
+ uses:="org.apache.log,org.apache.log4j",holdmarker.template;version="
+ 2.3.15";uses:="holdmarker.cache,holdmarker.core,javax.swing.tree",fre
+ emarker.template.utility;version="2.3.15";uses:="holdmarker.core,hold
+ marker.template,org.python.core,org.w3c.dom"
+Implementation-Title: Title
+Implementation-Version: 2.3.15
+Bundle-Classpath: .
+Specification-Vendor: Vikings
+Bundle-Name: BusyStuff
+Created-By: 11.0-b15 (Sun Microsystems Inc.)
+Ant-Version: Apache Ant 1.6.5
+Implementation-Vendor: Vikings

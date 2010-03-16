@@ -1,5 +1,5 @@
 ###############################################################################
-# Copyright (c) 2008-2009 Manifest and others.
+# Copyright (c) 2008-2010 Manifest and others.
 # All rights reserved. This program and the accompanying materials
 # are made available under the terms of the Eclipse Public License v1.0
 # which accompanies this distribution, and is available at
@@ -13,7 +13,7 @@ module Manifest #:nodoc:
   module VERSION #:nodoc:
     MAJOR = 0
     MINOR = 0
-    TINY  = 7
+    TINY  = 8
 
     STRING = [MAJOR, MINOR, TINY].join('.')
   end

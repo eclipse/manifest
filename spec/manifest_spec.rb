@@ -1,5 +1,5 @@
 ###############################################################################
-# Copyright (c) 2008-2009 Manifest and others.
+# Copyright (c) 2008-2010 Manifest and others.
 # All rights reserved. This program and the accompanying materials
 # are made available under the terms of the Eclipse Public License v1.0
 # which accompanies this distribution, and is available at
@@ -51,10 +51,32 @@ MANIFEST
     sections.first["Export-Package"].size.should == 1
   end
   
+  it "should support nested lists even if placed after an other optional attribute" do
+    manifest = <<-MANIFEST
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-SymbolicName: org.eclipse.core.resources; singleton:=true
+Bundle-Version: 3.5.1.R_20090912
+Export-Package: org.mortbay.jetty.nio;version="6.1.20";uses:="org.mortb
+ ay.log,org.mortbay.thread,org.mortbay.io,org.mortbay.jetty,org.mortbay
+ .util.ajax,org.mortbay.io.nio"
+Bundle-ActivationPolicy: Lazy
+MANIFEST
+    sections = Manifest.read(manifest)
+    sections.first["Export-Package"].size.should == 1
+  end
+  
   it "should not merge when several options are used" do
     manifest = File.read(File.join(File.dirname(__FILE__), 'gmf_manifest.MF'))
     sections = Manifest.read(manifest)
     sections.first["Require-Bundle"].size.should == 4
+  end
+  
+  it 'should support nested lists with long manifests' do
+    manifest = File.read(File.join(File.dirname(__FILE__), 'manifest_with_uses.MF'))
+    sections = Manifest.read(manifest)
+    sections.first["Export-Package"].size.should == 17
+    
   end
 end
 
